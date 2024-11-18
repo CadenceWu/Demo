@@ -1,10 +1,167 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <title>Improved Page</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/TestCadence/IntAlarm.nsf/forAll?OpenCssResource">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <script>
+        // Load content function
+        function LoadContent(URLStr) {
+            $(".content").load(URLStr, function () {
+
+            });
+        }
+
+        $(document).ready(function () {
+            LoadContent("OK.html");
+            
+            // Handle list item click
+            const listItems = $("#myList a");
+            listItems.click(function () {
+                listItems.removeClass('active');
+                $(this).addClass('active');
+                localStorage.setItem('clickedLink', this.id);
+            });
+
+            // Restore last clicked link
+            const lastClickedLinkId = localStorage.getItem('clickedLink');
+
+        });
+
+        // Click handling function
+        function _doClick(v, o, t) {
+            const url = "/TestCadence/IntAlarm.nsf/HomePage?OpenPage&Click=" + v;
+            if (o.href != null) {
+                o.href = url;
+                return true;
+            } else {
+                if (t == null) t = "_self";
+                window.open(url, t);
+            }
+            return false;
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            color: #000;
+            background-color: #fff;
+        }
+
+        .backGround {
+            background-color: #689dec;
+            height: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .side {
+            float: left;
+            margin: 0;
+            padding: 0;
+            border-right: 1px solid #cccccc;
+            height: 100%;
+            border-width: thin;
+            background-color: #fcfcfa;
+
+        }
+
+        .content {
+            min-height: 100%;
+            display: grid;
+        }
+
+        .wrapper {
+            display: flex;
+            height: 100vh;
+        }
+
+        .list-group-item.active {
+            background-color: #1b95aa;
+            color: #fff;
+        }
+
+        .list-group-item {
+            border: none;
+        }
+
+        #reportSys {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="Header">
+        <div style="text-align: center;">
+            <table style="width: 100%;">
+                <tr valign="top">
+                    <!-- Logo Section -->
+                    <td style="width: 15%;">
+                        <div style="padding-left: 30px; padding-top: 10px;">
+                            <img src="Reporting.png" width="142" height="60">
+                        </div>
+                    </td>
+                    <!-- Title Section -->
+                    <td id="reportSys" style="width: 55%; text-align: center; padding-top: 20px;">
+                        <p><b>Reporting System</b></p>
+                    </td>
+                    <!-- User Info Section -->
+                    <td style="width: 30%; text-align: right;">
+                        <div style="margin-right: 10px; margin-top: 5px;">
+                            <ul style="list-style: none; padding: 0;">
+                                <li>
+                                    <i class="fas fa-sign-in-alt" style="font-size: 20px; color: #05a32f;"></i>
+                                    <a href="(Test)LogoutPage?openPage" style="text-decoration: none;"
+                                        target="_top">Return</a>
+                                </li>
+                                <li>
+                                    <span class="fa fa-user" style="font-size: 20px; color: #05a32f;"></span>
+                                    Risk Management Department TomYang
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="backGround"></div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div class="wrapper">
+        <!-- Sidebar Section -->
+        <div class="side">
+            <div class="list-group" id="myList">
+                <a class="list-group-item list-group-item-action active" id="link1" href="#"
+                    onClick="">All Documents</a>
+                <a class="list-group-item list-group-item-action" id="link2" href="#"
+                    onClick="">Dealed Documents</a>
+                <a class="list-group-item list-group-item-action" id="link3" href="#"
+                    onClick="">Finished Documents</a>
+                <a class="list-group-item list-group-item-action" id="link4" href="#"
+                    onClick="">Editing Documents</a>
+                <a class="list-group-item list-group-item-action" id="link5" href="#"
+                    onClick="LoadContent('OK.html')">Searching Documents</a>
+            </div>
+        </div>
+        <div class="content"></div>
+    </div>
 </body>
+
 </html>
