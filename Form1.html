@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="datepicker.min.css">
+    <script src="datepicker.min.js"></script>
+    <link rel="stylesheet" href="timepicker.min.css">
+    <script src="timepicker.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#HappenDate').datepicker({
+                format: 'yyyy/mm/dd',
+                autoHide: true,
+            });
+           
+            const today = new Date(); // Create a new Date object and format it to YYYY/MM/DD
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0'); // Add leading zero 
+            const day = String(today.getDate()).padStart(2, '0'); // Add leading zero 
+            document.getElementById('date-span').textContent = `${year}/${month}/${day}`; // Insert the formatted date into the span
+
+        });
+
+    </script>
+    <style>
+        .font-style {
+            font-family: '標楷體', sans-serif;
+        }
+
+        .font-size-large {
+            font-size: 20px;
+            /* Equivalent to size="5" */
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .highlight {
+            color: #FF0000;
+        }
+
+        .input-container {
+            background-color: #f1e9dd;
+        }
+    </style>
+</head>
+
+<body text="#000000" bgcolor="#FFFFFF">
+
+    <form method="post">
+        <p></p>
+
+        <div class="panel panel-info">
+            <div class="panel-heading"></div>
+            <div class="panel-body">
+                <table id="LawCompForm" style="width: 100%;" border="1">
+                    <tr valign="top">
+                        <td class="tdTitle" style="width: 25%; " width="327" bgcolor="#FFFFFF">
+                            <div class="text-right">
+                                <span class="font-style">Report</span>
+                                <span class="font-style">Category:</span>
+                            </div>
+                        </td>
+                        <td class="forTd" width="485" colspan="3">
+                            <span class="font-style">
+                                <input name="ReportType" type="hidden" value="1" />
+                                <label>
+                                    <input type="radio" name="ReportType" value="Category1" id="ReportType1"
+                                        style="margin-left: 10px; margin-top: 10px" />Category1
+                                </label>
+                                <label>
+                                    <input type="radio" name="ReportType" value="Category2" id="ReportType2"
+                                        style="margin-left: 10px; margin-top: 10px" />Category2
+                                </label>
+                                <label>
+                                    <input type="radio" name="ReportType" value="Category3" id="ReportType3"
+                                        style="margin-left: 10px; margin-top: 10px" />Category3
+                                </label>
+                                <label>
+                                    <input type="radio" name="ReportType" value="Category4" id="ReportType4"
+                                        style="margin-left: 10px; margin-top: 10px" />Category4
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+
+                    <tr valign="top">
+                        <td class="tdTitle" style="width:20%;" width="327" bgcolor="#FFFFFF">
+                            <div class="text-right">
+                                <span class="font-style">Reporting Unit:</span>
+                            </div>
+                        </td>
+                        <td class="forTd" style="width:30%" width="131">
+                            <span class="font-style">
+                                <input name="ReportUnit" value="" id="ReportUnit" class="form-control input-container"
+                                    style="display:none;" readOnly="true" />
+                            </span>
+                            <div id="ReportUnitShow"></div>
+                        </td>
+                        <td class="tdTitle" style="width: 15%" width="115">
+                            <div class="text-right">
+                                <span class="font-style">Reporter:</span>
+                            </div>
+                        </td>
+                        <td class="forTd" style="width: 20%" width="239">
+                            <span class="font-style">Tom Yang</span>
+                        </td>
+                    </tr>
+
+                    <tr valign="top">
+                        <td class="tdTitle" width="327" bgcolor="#FFFFFF">
+                            <div class="text-right">
+                                <span class="font-style">Report Date:</span>
+                            </div>
+                        </td>
+                        <td class="forTD" width="131">
+                            <span class="font-style" id="date-span">2024/10/30</span>
+                        </td>
+                        <td class="tdTitle" width="115">
+                            <div class="text-right">
+                                <span class="highlight font-style">*</span>
+                                <span class="font-style">Incident Date:</span>
+                            </div>
+                        </td>
+                        <td class="forTD" style="width:25%" width="239">
+                            <div class="inputWithIcon" id="show-datepicker" style="margin-top:0;">
+                                <input name="HappenDate" value="" id="HappenDate" class="form-control"
+                                    autocomplete="off" readOnly="readOnly" />
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        <br>
+
+</body>
+
+</html>

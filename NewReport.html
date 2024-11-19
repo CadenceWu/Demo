@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    .formTop {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0;
+    }
+
+    .form-number {
+      font-family: "標楷體", serif;
+      font-size: 1.25rem;
+    }
+
+    .page-title {
+      font-family: "Segoe UI", sans-serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #212529;
+    }
+
+    .draft-status {
+      color: #FF0000;
+      font-weight: bold;
+    }
+
+    .info-table {
+      width: 90%;
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+
+    .info-label {
+      color: #00C200;
+      font-family: "標楷體", serif;
+      font-size: 1.25rem;
+      text-align: right;
+      padding-right: 15px;
+      width: 15%;
+    }
+
+    .info-content {
+      font-family: "標楷體", serif;
+      font-size: 1.25rem;
+      width: 20%;
+    }
+
+    .tab-iframe {
+      display: block;
+      margin: 0 auto;
+      border: none;
+      width: 97%;
+      height: 100%;
+    }
+
+    .signature-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .signature-header {
+      background-color: #A1E2FF;
+      font-size: 1.25rem;
+      font-weight: bold;
+      padding: 10px;
+    }
+
+    .signature-content {
+      font-size: 1.25rem;
+      padding: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100vh;
+
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: auto;
+      /* Allow the whole page to scroll */
+    }
+  </style>
+</head>
+
+<body>
+  <form method="post">
+    <div class="formTop">
+      <div class="button-group">
+        <button type="button" class="btn btn-success">
+          <i class="fa fa-download"></i> Save
+        </button>
+        <button type="button" class="btn btn-success">
+          Next Process <i class="fas fa-arrow-right"></i>
+        </button>
+        <button type="button" class="btn btn-success" onClick="window.close()">
+          <i class="fa fa-home"></i> Close Window
+        </button>
+      </div>
+
+      <div class="header-content">
+        <span class="form-number">Form Number: <span class="text-success"></span></span>
+        <span class="page-title">Reporting Entry</span>
+        <span class="draft-status">Draft</span>
+      </div>
+    </div>
+
+    <table class="info-table">
+      <tr>
+        <td class="info-label">Reporter:</td>
+        <td class="info-content">Tom Yang</td>
+        <td class="info-label">Department:</td>
+        <td colspan="3">
+          <select name="ChooseDept" id="ChooseDept" class="form-control" style="width: auto">
+            <option value="First Department">First Department</option>
+            <option value="Second Department">Second Department</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+
+    <br>
+
+    <div id="theTab">
+      <ul class="nav nav-tabs" id="myTab" role="tablist" style="font-size: 14pt;">
+        <li class="nav-item active" role="presentation">
+          <a class="nav-link active" data-toggle="tab" href="#a" role="tab">Form1</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" data-toggle="tab" href="#b" role="tab">Form2</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" data-toggle="tab" href="#c" role="tab">Form3</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" data-toggle="tab" href="#d" role="tab">Form4</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" data-toggle="tab" href="#e" role="tab">Form5</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="a">
+          <br>
+          <iframe src="Form1.html" class="tab-iframe" id="ifrForm1" scrolling=""></iframe>
+        </div>
+        <div class="tab-pane" id="b">
+          <br>
+          <p>This is iframe Form2</p>
+        </div>
+        <div class="tab-pane" id="c">
+          <br>
+          <p>This is iframe Form3</p>
+        </div>
+        <div class="tab-pane" id="d">
+          <br>
+          <p>This is iframe Form4</p>
+        </div>
+
+        <div class="tab-pane" id="e">
+          <br>
+          <div class="panel panel-default" style="width: 98%; margin: auto">
+            <div class="panel-heading"></div>
+            <div class="panel-body">
+              <br>
+              <table class="signature-table table table-striped table-bordered">
+                <tr>
+                  <th class="signature-header" style="width: 13%">Step</th>
+                  <th class="signature-header" style="width: 10%">Signer</th>
+                  <th class="signature-header" style="width: 20%">Job Title</th>
+                  <th class="signature-header" style="width: 15%">Result</th>
+                  <th class="signature-header" style="width: 20%">Date Time</th>
+                  <th class="signature-header">Signer's Comment</th>
+                </tr>
+                <tr>
+                  <td class="signature-content"></td>
+                  <td class="signature-content">()</td>
+                  <td class="signature-content"></td>
+                  <td class="signature-content"></td>
+                  <td class="signature-content"></td>
+                  <td class="signature-content"></td>
+                </tr>
+                <tr>
+                  <th class="signature-header">Comment</th>
+                  <td class="signature-content" colspan="5"></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+  </form>
+</body>
+
+</html>
